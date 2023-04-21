@@ -1,31 +1,17 @@
 import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
+import logo from './logo.svg'
+import { Layout, Typography, Input } from 'antd';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <h1>Hello world</h1>
-        <h2>Hello world</h2>
-        <h3>Hello world</h3>
-        <hr />
-        <code>
-          const a = 'b'
-        </code>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Layout.Header>
+          <img src={logo} alt="" className="App-logo" />
+          <Typography.Title level={3}>React 旅遊網</Typography.Title>
+          <Input.Search placeholder="請輸入旅遊目的地或關鍵字" />
+        </Layout.Header>
+      </div>
     </div>
   );
 }
