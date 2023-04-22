@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg'
+import logo from './assets/logo.svg'
 import type { MenuProps } from 'antd';
 import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd';
 import { GlobalOutlined } from '@ant-design/icons'
