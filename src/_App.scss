@@ -4,9 +4,9 @@ $container: 88%;
 .App {
   text-align: center;
   .app-header {
-    background-color: white;
+    background-color: $white;
     .container {
-      background-color: #f5f5f5;
+      background-color: $gray-normal;
       .top-header {
         margin: 0 auto;
         width: $container;
@@ -23,7 +23,7 @@ $container: 88%;
     }
     .main-header {
       width: $container;
-      background-color: white;
+      background-color: $white;
       height: $height-base;
       line-height: $line-height-base;
       margin-left: auto;
@@ -40,10 +40,16 @@ $container: 88%;
       }
       .search-input {
         width: 400px !important;
-        line-height: 64px;
+        line-height: $line-height-base;
         margin-top: 17px;
         margin-left: 37px;
       }
+    }
+    .main-menu {
+      padding-left: 6% !important;
+      padding-right: 6% !important;
+      background-color: $primary;
+      color: $gray-normal;
     }
   }
 }
