@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './App.module.scss'
-import { Header } from './component/Header/Header'
-import { Footer } from './component/Footer/Footer'
+import { Header, Footer } from './component'
 
-const App = () => {
+const App: React.FC = () => {
 
   return (
     <div className={styles.App}>
