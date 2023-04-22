@@ -39,7 +39,7 @@ const App = () => {
         </Layout.Header>
       </div>
     </div>
-  );
+  )
 }
 
 export default App;
