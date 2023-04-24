@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './App.module.scss'
-import { Header, Footer } from './component'
+import { Header, Footer, Carousel, SideMenu } from './component'
 import { Row, Col } from 'antd'
 
 const App: React.FC = () => {
@@ -11,8 +11,12 @@ const App: React.FC = () => {
       {/* 頁面內容content */}
       <div className={styles['page-content']}>
         <Row style={{ margin: 20 }}>
-          <Col></Col>
-          <Col></Col>
+          <Col span={6}>
+            <SideMenu />
+          </Col>
+          <Col span={18}>
+            <Carousel />
+          </Col>
         </Row>
       </div>
       <Footer />
