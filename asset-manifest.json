@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/React_interview_project/static/css/main.a3bcf836.css",
+    "main.js": "/React_interview_project/static/js/main.9c281fed.js",
+    "static/js/787.52d1c508.chunk.js": "/React_interview_project/static/js/787.52d1c508.chunk.js",
+    "static/media/carousel_3.jpg": "/React_interview_project/static/media/carousel_3.39c09c7100584146487d.jpg",
+    "static/media/carousel_2.jpg": "/React_interview_project/static/media/carousel_2.b79314aaa2a9db2d5fc0.jpg",
+    "static/media/carousel_1.jpg": "/React_interview_project/static/media/carousel_1.8a3dd5919c9be2269384.jpg",
+    "static/media/logo.svg": "/React_interview_project/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/React_interview_project/index.html",
+    "main.a3bcf836.css.map": "/React_interview_project/static/css/main.a3bcf836.css.map",
+    "main.9c281fed.js.map": "/React_interview_project/static/js/main.9c281fed.js.map",
+    "787.52d1c508.chunk.js.map": "/React_interview_project/static/js/787.52d1c508.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a3bcf836.css",
+    "static/js/main.9c281fed.js"
+  ]
+}
