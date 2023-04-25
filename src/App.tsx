@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './App.module.scss'
 import { Header, Footer, Carousel, SideMenu } from './component'
-import { Row, Col } from 'antd'
+import { Row, Col, Typography } from 'antd'
+import { productList1, productList2, productList3 } from './mockup'
+import sideImage from './assets/images/sider_2019_12-09.png'
+import sideImage2 from './assets/images/sider_2019_12-04.png'
+import sideImage3 from './assets/images/sider_2019_12-04-2.png'
 
 const App: React.FC = () => {
 
@@ -18,6 +22,11 @@ const App: React.FC = () => {
             <Carousel />
           </Col>
         </Row>
+        {/* <ProductCollection 
+          title={<Typography.Title level={3} type="warning">爆款推薦</Typography.Title>}
+          sideImage={sideImage}
+          products={productList1}
+        /> */}
       </div>
       <Footer />
     </div>
