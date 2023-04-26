@@ -4,6 +4,7 @@ import type { MenuProps } from 'antd';
 import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd';
 import { GlobalOutlined } from '@ant-design/icons'
 import styles from './Header.module.scss'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
 
 export const Header: React.FC = () => {
   const items: MenuProps['items'] = [
@@ -28,6 +29,14 @@ export const Header: React.FC = () => {
     { key: 15, label: "愛玩戶外" },
     { key: 16, label: "保險"}
   ]
+
+  // 進行頁面的處理
+  const navigate = useNavigate()
+  // 當前的路徑訊息
+  const location = useLocation()
+  // 獲取URL中的參數
+  const params = useParams()
+
   return (
     <div>
       <div className={styles["app-header"]}>
@@ -42,14 +51,16 @@ export const Header: React.FC = () => {
               語言
             </Dropdown.Button>
             <Button.Group className={styles["button-group"]}>
-              <Button>註冊</Button>
-              <Button>登入</Button>
+              <Button onClick={() => navigate("/register")}>註冊</Button>
+              <Button onClick={() => navigate("/signin")}>登入</Button>
             </Button.Group>
           </div>
         </div>
 
         <Layout.Header className={styles["main-header"]}>
-          <img src={logo} alt="" className={styles["App-logo"]} />
+          <span onClick={() => navigate("/")}>
+            <img src={logo} alt="" className={styles["App-logo"]} />
+          </span>
           <Typography.Title level={3} className={styles.title}>React 旅遊網</Typography.Title>
           <Input.Search placeholder="請輸入旅遊目的地或關鍵字" className={styles["search-input"]} />
         </Layout.Header>
