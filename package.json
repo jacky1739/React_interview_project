@@ -49,6 +49,5 @@
   },
   "devDependencies": {
     "typescript-plugin-css-modules": "^5.0.1"
-  },
-  "homepage": "https://jacky1739.github.io/React_interview_project"
+  }
 }
