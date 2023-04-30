@@ -1,9 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './styles/index.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'antd/dist/reset.css';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './styles/index.scss'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import 'antd/dist/reset.css'
+import './i18n/configs'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
