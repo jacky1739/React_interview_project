@@ -5,15 +5,40 @@ import { Layout, Typography, Input, Menu, Button, Dropdown } from 'antd';
 import { GlobalOutlined } from '@ant-design/icons'
 import styles from './Header.module.scss'
 import { useParams, useLocation, useNavigate } from 'react-router-dom'
+
 import { useTranslation } from 'react-i18next'
+
+import { useSelector } from '../../redux/hooks'
+import { useDispatch } from 'react-redux'
+
+import { LanguageActionTypes, addLanguageActionCreator, changeLanguageActionCreator } from '../../redux/language/languageActions'
 
 export const Header: React.FC = () => {
   const { t } = useTranslation()
+  // 進行頁面的處理
+  const navigate = useNavigate()
+  // 當前的路徑訊息
+  const location = useLocation()
+  // 獲取URL中的參數
+  const params = useParams()
+
+  const language = useSelector((state) => state.language)
+  const languageList = useSelector((state) => state.languageList)
+  const dispatch = useDispatch()
+
+  const menuClickHandler = (e: any) => {
+    console.log(e)
+    if (e.key === "new") {
+      dispatch(addLanguageActionCreator("新語言", "new_lang"))
+    } else {
+      dispatch(changeLanguageActionCreator(e.key))
+    }
+  }
   
-  const items: MenuProps['items'] = [
-    { key: '1', label: '中文' },
-    { key: '2', label: 'English'}
-  ]
+  const items = languageList.map((item) => {
+    return { key: item.code, label: item.name, onClick: (e: any) => { menuClickHandler(e) } }
+  })
+
   const menuItems: MenuProps['items'] = [
     { key: "1", label: t("header.home_page") },
     { key: "2", label: t("header.weekend") },
@@ -33,13 +58,6 @@ export const Header: React.FC = () => {
     { key: "16", label: t("header.insurance") }
   ]
 
-  // 進行頁面的處理
-  const navigate = useNavigate()
-  // 當前的路徑訊息
-  const location = useLocation()
-  // 獲取URL中的參數
-  const params = useParams()
-
   return (
     <div>
       <div className={styles["app-header"]}>
@@ -51,7 +69,7 @@ export const Header: React.FC = () => {
               menu={{items}}
               icon={ <GlobalOutlined /> }
             >
-              語言
+              { language === "zh" ? "中文" : "English"}
             </Dropdown.Button>
             <Button.Group className={styles["button-group"]}>
               <Button onClick={() => navigate("/register")}>{t("header.register")}</Button>

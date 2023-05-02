@@ -16,7 +16,7 @@ const defaultState: LanguageState = {
 
 // 使用參數傳入的就數據, 透過action的指令對數據作出處理, 輸出一個新的數據
 export default (state = defaultState, action: LanguageActionTypes) => {
-  console.log(state)
+  console.log(state, action)
   switch(action.type) {
     case CHANGE_LANGUAGE:
       i18n.changeLanguage(action.payload)

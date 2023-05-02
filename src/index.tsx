@@ -6,12 +6,17 @@ import reportWebVitals from './reportWebVitals'
 import 'antd/dist/reset.css'
 import './i18n/configs'
 
+import { Provider } from 'react-redux'
+import store from './redux/store'
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
