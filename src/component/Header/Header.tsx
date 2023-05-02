@@ -26,9 +26,10 @@ export const Header: React.FC = () => {
   const languageList = useSelector((state) => state.languageList)
   const dispatch = useDispatch()
 
+  // 發送
   const menuClickHandler = (e: any) => {
     console.log(e)
-    if (e.key === "new") {
+    if (e.key === "new_lang") {
       dispatch(addLanguageActionCreator("新語言", "new_lang"))
     } else {
       dispatch(changeLanguageActionCreator(e.key))
