@@ -22,8 +22,8 @@ export const Header: React.FC = () => {
   // 獲取URL中的參數
   const params = useParams()
 
-  const language = useSelector((state) => state.language)
-  const languageList = useSelector((state) => state.languageList)
+  const language = useSelector((state) => state.language.language)
+  const languageList = useSelector((state) => state.language.languageList)
   const dispatch = useDispatch()
 
   // 發送
@@ -35,7 +35,7 @@ export const Header: React.FC = () => {
       dispatch(changeLanguageActionCreator(e.key))
     }
   }
-  
+  // 渲染語言列表
   const items = languageList.map((item) => {
     return { key: item.code, label: item.name, onClick: (e: any) => { menuClickHandler(e) } }
   })
