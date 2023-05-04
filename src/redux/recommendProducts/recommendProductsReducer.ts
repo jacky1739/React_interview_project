@@ -1,6 +1,5 @@
 import { RecommendProductAction } from './recommendProductsAction'
 
-
 interface RecommendProductsState {
   productList: any[],
   loading: boolean,

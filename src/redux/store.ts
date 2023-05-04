@@ -1,7 +1,9 @@
 import { createStore, combineReducers } from 'redux'
 import languageReducer from './language/languageReducer'
 import recommendProductsReducer from './recommendProducts/recommendProductsReducer'
+
 // rootReducer命名為固定, 為combineReducers的集合體
+// combineReducers可以組合多個reducer
 const rootReducer = combineReducers({
   language: languageReducer,
   recommendProducts: recommendProductsReducer
@@ -13,6 +15,5 @@ const store = createStore(rootReducer)
 export type RootState = ReturnType<typeof store.getState>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
-
 
 export default store
