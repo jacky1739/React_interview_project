@@ -16,10 +16,10 @@ import axios from 'axios'
 import { useSelector } from '../../redux/hooks'
 import { useDispatch } from 'react-redux'
 import { 
-  fetchRecommendProductStartActionCreator,
-  fetchRecommendProductSuccessActionCreator,
-  fetchRecommendProductFailActionCreator,
-  // giveMeDataActionCreator 
+  // fetchRecommendProductStartActionCreator,
+  // fetchRecommendProductSuccessActionCreator,
+  // fetchRecommendProductFailActionCreator,
+  giveMeDataActionCreator 
   } from '../../redux/recommendProducts/recommendProductsAction'
 
 export const HomePage: React.FC = () => {
@@ -30,19 +30,20 @@ export const HomePage: React.FC = () => {
   const dispatch = useDispatch()
   
   useEffect(() => {
-    const fetchData = async () => {
-      dispatch(fetchRecommendProductStartActionCreator())
-      try {
-        const { data } = await axios.get("http://123.56.149.216:8080/api/productCollections")
-        dispatch(fetchRecommendProductSuccessActionCreator(data))
-      } catch (e) {
-        if (e instanceof Error) {
-          dispatch(fetchRecommendProductFailActionCreator(error.message))
-        }
-      }
-    }
+    // const fetchData = async () => {
+    //   dispatch(fetchRecommendProductStartActionCreator())
+    //   try {
+    //     const { data } = await axios.get("http://123.56.149.216:8080/api/productCollections")
+    //     dispatch(fetchRecommendProductSuccessActionCreator(data))
+    //   } catch (e) {
+    //     if (e instanceof Error) {
+    //       dispatch(fetchRecommendProductFailActionCreator(error.message))
+    //     }
+    //   }
+    // }
   
-    fetchData()
+    // fetchData()
+    dispatch(giveMeDataActionCreator())
   }, [])
 
   if (loading) {
