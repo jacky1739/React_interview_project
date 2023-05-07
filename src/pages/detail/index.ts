@@ -1,1 +1,1 @@
-export * from './detailPage'
+export * from './DetailPage'
