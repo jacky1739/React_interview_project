@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { Spin } from 'antd'
+import { Spin, Row, Col } from 'antd'
 import styles from './DetailPage.module.scss'
-import { Header, Footer } from '../../component'
+import { Header, Footer, ProductIntro } from '../../component'
+// antd 日期
+import { DatePicker, Space } from 'antd'
+const { RangePicker } = DatePicker
 
 // type MatchParams = {
 //   touristRouteId: string, 
@@ -63,7 +66,27 @@ export const DetailPage: React.FC = () => {
       <Header />
       <div className={styles["page-content"]}>
         {/* 產品簡介 和 日期選擇 */}
-        <div className={styles["product-intro-container"]}></div>
+        <div className={styles["product-intro-container"]}>
+          <Row>
+            <Col span={13}>
+              <ProductIntro
+                title={product.title}
+                shortDescription={product.descriptioin}
+                price={product.originalPrice}
+                coupons={product.coupons}
+                points={product.points}
+                discount={product.price}
+                rating={product.rating}
+                pictures={product.touristRoutePictures.map((picture: any) => 
+                  picture.url
+                )}
+              />
+            </Col>
+            <Col span={11}>
+              <RangePicker open style={{ marginTop: 20 }} />
+            </Col>
+          </Row>
+        </div>
         {/* 錨點菜單 */}
         <div className={styles["product-detail-anchor"]}></div>
         {/* 產品特色 */}
