@@ -21,10 +21,11 @@ const columns: ColumnsType<RowType> = [
     key: "title",
     align: "left",
     width: 120
-  }, {
+  },
+  {
     title: "description",
     dataIndex: "description",
-    key: "description",
+    key: "descriptioin",
     align: "center"
   }
 ]
@@ -95,15 +96,14 @@ export const ProductIntro: React.FC<PropsType> = (props) => {
        <Typography.Text>{shortDescription}</Typography.Text>
        <div className={styles['intro-detail-content']}>
         <Typography.Text style={{ margin: 20 }}>
-          $ <span className={styles['intro-detail-strong-text']}>{price}</span>
+          $ <span className={styles['intro-detail-strong-text']}>{price}</span>/人起
         </Typography.Text>
         <Typography.Text style={{ margin: 50 }}>
-          <span className={styles['intro-detail-strong-text']}>{rating}</span>
+          <span className={styles['intro-detail-strong-text']}>{rating}</span> 分
         </Typography.Text>
        </div>
-      <Carousel autoplay slickGoTo={3}>
-        {
-          pictures.map(p => {
+      <Carousel autoplay slidesToShow={3}>
+        { pictures.map(p => {
             return <Image height={150} src={p} />
           })
         }
