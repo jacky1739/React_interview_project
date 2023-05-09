@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { Spin, Row, Col } from 'antd'
+import { Spin, Row, Col, Divider, Typography } from 'antd'
 import styles from './DetailPage.module.scss'
 import { Header, Footer, ProductIntro } from '../../component'
 // antd 日期
@@ -90,11 +90,33 @@ export const DetailPage: React.FC = () => {
         {/* 錨點菜單 */}
         <div className={styles["product-detail-anchor"]}></div>
         {/* 產品特色 */}
-        <div id='feature' className={styles['product-detail-container']}></div>
+        <div id='feature' className={styles['product-detail-container']}>
+          <Divider orientation={'center'}>
+            <Typography.Title level={3}>產品特色</Typography.Title>
+          </Divider>
+          {/* react為防止注入攻擊, 有特殊的html處理機制, 使用dangerouslySetInnerHTML */}
+          <div
+            dangerouslySetInnerHTML={{__html: product.features}} style={{ margin: 50 }}
+          />
+        </div>
         {/* 費用 */}
-        <div id='fees' className={styles['product-detail-container']}></div>
+        <div id='fees' className={styles['product-detail-container']}>
+          <Divider orientation={"center"}>
+            <Typography.Title level={3}>費用</Typography.Title>
+          </Divider>
+          <div
+            dangerouslySetInnerHTML={{__html: product.fees}} style={{ margin: 50}}
+          />
+        </div>
         {/* 預定須知 */}
-        <div id='notes' className={styles['product-detail-container']}></div>
+        <div id='notes' className={styles['product-detail-container']}>
+          <Divider>
+            <Typography.Title level={3}>預定須知</Typography.Title>
+          </Divider>
+          <div
+            dangerouslySetInnerHTML={{__html: product.notes}} style={{ margin: 50 }}
+          />
+        </div>
         {/* 商品評價 */}
         <div id='comments' className={styles['product-detail-container']}></div>
       </div>
