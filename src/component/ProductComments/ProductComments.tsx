@@ -1,6 +1,6 @@
 import React from 'react'
-import { List, Tooltip } from 'antd'
-
+import { List } from 'antd'
+import { Comment } from '@ant-design/compatible'
 
 interface PropsType {
   data: {
@@ -11,20 +11,23 @@ interface PropsType {
   }[]
 }
 
-export const ProductComments: React.FC<PropsType> = ({data}) => {
-  return(
-    <List
+export const ProductComments: React.FC<PropsType> = ({ data }) => {
+  return (
+    <List 
       dataSource={data}
       itemLayout="horizontal"
-      renderItem={(item) => {
+      renderItem={(item)=> {
         return (
           <li>
-
+            <Comment 
+              author={item.author}
+              avatar={item.avatar}
+              content={item.content}
+              datetime={item.createDate}
+            />
           </li>
         )
       }}
-    >
-      
-    </List>
+    />
   )
 }

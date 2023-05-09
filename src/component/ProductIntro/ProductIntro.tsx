@@ -58,18 +58,18 @@ export const ProductIntro: React.FC<PropsType> = (props) => {
         ),
     },
     {
-    key: 2,
-    title: "限时抢购折扣",
-    description: discount ? (
-      <>
-        ¥ <Typography.Text delete>{price}</Typography.Text>{" "}
-        <Typography.Text type="danger" strong>
-          ¥ {discount}
-        </Typography.Text>
-        </>
-    ) : (
-        "暂无折扣"
-    ),
+      key: 2,
+      title: "限时抢购折扣",
+      description: discount ? (
+        <>
+          ¥ <Typography.Text delete>{price}</Typography.Text>{" "}
+          <Typography.Text type="danger" strong>
+            ¥ {discount}
+          </Typography.Text>
+          </>
+      ) : (
+          "暂无折扣"
+      ),
     },
     {
       key: 3,
@@ -92,19 +92,19 @@ export const ProductIntro: React.FC<PropsType> = (props) => {
 
   return (
     <div className={styles['intro-container']}>
-       <Typography.Title level={4}>{title}</Typography.Title>
-       <Typography.Text>{shortDescription}</Typography.Text>
-       <div className={styles['intro-detail-content']}>
+      <Typography.Title level={4}>{title}</Typography.Title>
+      <Typography.Text>{shortDescription}</Typography.Text>
+      <div className={styles['intro-detail-content']}>
         <Typography.Text style={{ margin: 20 }}>
           $ <span className={styles['intro-detail-strong-text']}>{price}</span>/人起
         </Typography.Text>
         <Typography.Text style={{ margin: 50 }}>
           <span className={styles['intro-detail-strong-text']}>{rating}</span> 分
         </Typography.Text>
-       </div>
+      </div>
       <Carousel autoplay slidesToShow={3}>
         { pictures.map(p => {
-            return <Image height={150} src={p} />
+          return <Image height={150} src={p} />
           })
         }
       </Carousel>

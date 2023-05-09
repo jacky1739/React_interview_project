@@ -3,10 +3,13 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Spin, Row, Col, Divider, Typography } from 'antd'
 import styles from './DetailPage.module.scss'
-import { Header, Footer, ProductIntro } from '../../component'
+import { Header, Footer, ProductIntro, ProductComments } from '../../component'
+// 引入商品評論MockData
+import { commentMockData } from './mockup'
 // antd 日期
 import { DatePicker, Space } from 'antd'
 const { RangePicker } = DatePicker
+
 
 // type MatchParams = {
 //   touristRouteId: string, 
@@ -60,7 +63,6 @@ export const DetailPage: React.FC = () => {
     return <div>網站出錯: {error}</div>
   }
 
-
   return (
     <div>
       <Header />
@@ -90,7 +92,7 @@ export const DetailPage: React.FC = () => {
         {/* 錨點菜單 */}
         <div className={styles["product-detail-anchor"]}></div>
         {/* 產品特色 */}
-        <div id='feature' className={styles['product-detail-container']}>
+        <div id="feature" className={styles['product-detail-container']}>
           <Divider orientation={'center'}>
             <Typography.Title level={3}>產品特色</Typography.Title>
           </Divider>
@@ -100,7 +102,7 @@ export const DetailPage: React.FC = () => {
           />
         </div>
         {/* 費用 */}
-        <div id='fees' className={styles['product-detail-container']}>
+        <div id="fees" className={styles['product-detail-container']}>
           <Divider orientation={"center"}>
             <Typography.Title level={3}>費用</Typography.Title>
           </Divider>
@@ -109,7 +111,7 @@ export const DetailPage: React.FC = () => {
           />
         </div>
         {/* 預定須知 */}
-        <div id='notes' className={styles['product-detail-container']}>
+        <div id="notes" className={styles['product-detail-container']}>
           <Divider>
             <Typography.Title level={3}>預定須知</Typography.Title>
           </Divider>
@@ -118,7 +120,14 @@ export const DetailPage: React.FC = () => {
           />
         </div>
         {/* 商品評價 */}
-        <div id='comments' className={styles['product-detail-container']}></div>
+        <div id="comments" className={styles['product-detail-container']}>
+          <Divider>
+            <Typography.Title level={3}>商品評價</Typography.Title>
+          </Divider>
+          <div style={{ margin: 40 }}>
+            <ProductComments data={commentMockData} />
+          </div>
+        </div>
       </div>
       <Footer />
     </div>
