@@ -6,10 +6,15 @@ import styles from './DetailPage.module.scss'
 import { Header, Footer, ProductIntro, ProductComments } from '../../component'
 // 引入商品評論MockData
 import { commentMockData } from './mockup'
-// antd 日期
-import { DatePicker, Space } from 'antd'
-const { RangePicker } = DatePicker
 
+import { ProductDetailSlice } from '../../redux/productDetail/slice'
+import { useSelector } from '../../redux/hooks'
+import { useDispatch } from 'react-redux'
+
+// antd 日期
+import { DatePicker } from 'antd'
+import { productDetailSlice } from '../../redux/recommendProducts/slice'
+const { RangePicker } = DatePicker
 
 // type MatchParams = {
 //   touristRouteId: string, 
@@ -22,23 +27,27 @@ interface MatchParams2 {
 
 export const DetailPage: React.FC = () => {
     // let params = useParams<"touristRouteId">
-  let params = useParams<keyof MatchParams2>()
+  // let params = useParams<keyof MatchParams2>()
   const { touristRouteId } = useParams<keyof MatchParams2>()
-  const [ loading, setLoading ] = useState<boolean>(true)
-  const [ product, setProduct ] = useState<any>(null)
-  const [ error, setError ] = useState<string | null>(null)
+  // const [ loading, setLoading ] = useState<boolean>(true)
+  // const [ product, setProduct ] = useState<any>(null)
+  // const [ error, setError ] = useState<string | null>(null)
+
+  const loading = useSelector((state) => state.productDetail.loading)
+  const error = useSelector((state) => state.productDetail.error)
+  const product = useSelector((state) => state.productDetail.data)
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true)
+      dispatch(productDetailSlice.actions.fetchStart)
       try {
         const { data } = await axios.get(`http://123.56.149.216:8080/api/touristRoutes/${touristRouteId}`)
         console.log(data)
-        setProduct(data)
-        setLoading(false)
-      } catch (error) {
-        setError(error instanceof Error ? error.message : "error")
-        setLoading(false)
+        dispatch(productDetailSlice.actions.fetchSuccess(data))
+      } catch (error: any) {
+        dispatch(productDetailSlice.actions.fetchFail(error.message))
       }
     }
     fetchData()
