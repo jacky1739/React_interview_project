@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
 import { Spin, Row, Col, Divider, Typography } from 'antd'
 import styles from './DetailPage.module.scss'
 import { Header, Footer, ProductIntro, ProductComments } from '../../component'
 // 引入商品評論MockData
 import { commentMockData } from './mockup'
 
-import { ProductDetailSlice } from '../../redux/productDetail/slice'
-import { useSelector } from '../../redux/hooks'
+import { getProductDetail } from '../../redux/productDetail/slice'
+import { useSelector, useAppDispatch } from '../../redux/hooks'
 import { useDispatch } from 'react-redux'
 
 // antd 日期
 import { DatePicker } from 'antd'
-import { productDetailSlice } from '../../redux/recommendProducts/slice'
+// import { productDetailSlice } from '../../redux/recommendProducts/slice'
 const { RangePicker } = DatePicker
 
 // type MatchParams = {
@@ -26,8 +25,6 @@ interface MatchParams2 {
 }
 
 export const DetailPage: React.FC = () => {
-    // let params = useParams<"touristRouteId">
-  // let params = useParams<keyof MatchParams2>()
   const { touristRouteId } = useParams<keyof MatchParams2>()
   // const [ loading, setLoading ] = useState<boolean>(true)
   // const [ product, setProduct ] = useState<any>(null)
@@ -37,20 +34,12 @@ export const DetailPage: React.FC = () => {
   const error = useSelector((state) => state.productDetail.error)
   const product = useSelector((state) => state.productDetail.data)
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    const fetchData = async () => {
-      dispatch(productDetailSlice.actions.fetchStart)
-      try {
-        const { data } = await axios.get(`http://123.56.149.216:8080/api/touristRoutes/${touristRouteId}`)
-        console.log(data)
-        dispatch(productDetailSlice.actions.fetchSuccess(data))
-      } catch (error: any) {
-        dispatch(productDetailSlice.actions.fetchFail(error.message))
-      }
+    if (touristRouteId) {
+      dispatch(getProductDetail(touristRouteId ))
     }
-    fetchData()
   }, [])
 
   if (loading) {
