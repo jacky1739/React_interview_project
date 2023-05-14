@@ -12,6 +12,7 @@ import { useSelector } from '../../redux/hooks'
 import { useDispatch } from 'react-redux'
 
 import { LanguageActionTypes, addLanguageActionCreator, changeLanguageActionCreator } from '../../redux/language/languageActions'
+import { keyboard } from '@testing-library/user-event/dist/keyboard';
 
 export const Header: React.FC = () => {
   const { t } = useTranslation()
@@ -84,7 +85,7 @@ export const Header: React.FC = () => {
             <img src={logo} alt="" className={styles["App-logo"]} />
           </span>
           <Typography.Title level={3} className={styles.title}>{t("header.title")}</Typography.Title>
-          <Input.Search placeholder="請輸入旅遊目的地或關鍵字" className={styles["search-input"]} />
+          <Input.Search placeholder="請輸入旅遊目的地或關鍵字" className={styles["search-input"]} onSearch={(keywords) => navigate("/search/" + keywords)} />
         </Layout.Header>
         <Menu mode={'horizontal'} items={menuItems} className={styles["main-menu"]}></Menu>
       </div>
