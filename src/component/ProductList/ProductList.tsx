@@ -64,11 +64,11 @@ export const ProductList: React.FC<PropsType> = ({
       pagination={
         paging ?
         {
-        current: paging.currentPage,
-        onChange: (page) => onPageChange && onPageChange(page, paging.pageSize),
-        pageSize: paging.pageSize,
-        total: paging.totalCount,
-      }
+          current: paging.currentPage,
+          onChange: (page) => onPageChange && onPageChange(page, paging.pageSize),
+          pageSize: paging.pageSize,
+          total: paging.totalCount,
+        }
     : false}
       dataSource={products}
       footer={

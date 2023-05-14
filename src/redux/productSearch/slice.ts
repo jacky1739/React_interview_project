@@ -20,8 +20,7 @@ export const searchProduct = createAsyncThunk(
   // 命名空間 / action 名稱
   "productSearch/searchProduct",
   async (parameters: {
-    keywords: string,
-    nextPage: number | string
+    keywords: string
   }, thunkAPI) => {
     let url = `http://123.56.149.216:8080/api/touristRoutes`
     if (parameters.keywords) {

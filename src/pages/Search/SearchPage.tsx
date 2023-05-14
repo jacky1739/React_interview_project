@@ -5,7 +5,6 @@ import { useLocation, useParams } from "react-router-dom"
 import { Spin } from 'antd'
 import { searchProduct } from '../../redux/productSearch/slice'
 import { useSelector, useAppDispatch } from '../../redux/hooks'
-import { useDispatch } from 'react-redux'
 
 interface MatchParams {
   keywords: string
@@ -19,12 +18,12 @@ export const SearchPage: React.FC = () => {
   const pagination = useSelector(state => state.productSearch.pagination)
   const productList = useSelector(state => state.productSearch.data)
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const location = useLocation()
 
   useEffect(() => {
     if (keywords) {
-      dispatch(searchProduct({ nextPage: 1, keywords }))
+      dispatch(searchProduct({ keywords }))
     }
   },[location]) // 如果url發生改變就觸發useEffect
 
