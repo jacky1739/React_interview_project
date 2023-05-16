@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
-import styles from './HomePage.module.scss'
-import { Header, Footer, Carousel, SideMenu, ProductCollection } from '../../component'
+import { Carousel, SideMenu, ProductCollection } from '../../component'
 import { Row, Col, Typography, Spin } from 'antd'
 
 // import { productList1, productList2, productList3 } from './mockup'
@@ -10,8 +9,6 @@ import sideImage2 from '../../assets/images/sider_2019_02-04.png'
 import sideImage3 from '../../assets/images/sider_2019_02-04-2.png'
 // i18n
 import { useTranslation } from 'react-i18next'
-// axios
-import axios from 'axios'
 
 import { useSelector } from '../../redux/hooks'
 import { useDispatch } from 'react-redux'
@@ -21,6 +18,8 @@ import {
   // fetchRecommendProductFailActionCreator,
   giveMeDataActionCreator 
   } from '../../redux/recommendProducts/recommendProductsAction'
+
+import { MainLayout } from '../../layout/mainLayout'
 
 export const HomePage: React.FC = () => {
   const { t } = useTranslation()
@@ -66,35 +65,30 @@ export const HomePage: React.FC = () => {
   }
 
   return (
-    <div>
-      <Header />
-      {/* 頁面內容content */}
-      <div className={styles['page-content']}>
-        <Row style={{ margin: 20 }}>
-          <Col span={6}>
-            <SideMenu />
-          </Col>
-          <Col span={18}>
-            <Carousel />
-          </Col>
-        </Row>
-        <ProductCollection 
-          title={<Typography.Title level={3} type="warning">{t('home_page.hot_recommended')}</Typography.Title>}
-          sideImage={sideImage}
-          products={productList[0].touristRoutes}
-        />
-        <ProductCollection 
-          title={<Typography.Title level={3} type="danger">{t('home_page.new_arrival')}</Typography.Title>}
-          sideImage={sideImage2}
-          products={productList[0].touristRoutes}
-        />
-        <ProductCollection 
-          title={<Typography.Title level={3} type="success">{t('home_page.domestic_travel')}</Typography.Title>}
-          sideImage={sideImage3}
-          products={productList[0].touristRoutes}
-        />
-      </div>
-      <Footer />
-    </div>
+    <MainLayout>
+      <Row style={{ margin: 20 }}>
+        <Col span={6}>
+          <SideMenu />
+        </Col>
+        <Col span={18}>
+          <Carousel />
+        </Col>
+      </Row>
+      <ProductCollection 
+        title={<Typography.Title level={3} type="warning">{t('home_page.hot_recommended')}</Typography.Title>}
+        sideImage={sideImage}
+        products={productList[0].touristRoutes}
+      />
+      <ProductCollection 
+        title={<Typography.Title level={3} type="danger">{t('home_page.new_arrival')}</Typography.Title>}
+        sideImage={sideImage2}
+        products={productList[0].touristRoutes}
+      />
+      <ProductCollection 
+        title={<Typography.Title level={3} type="success">{t('home_page.domestic_travel')}</Typography.Title>}
+        sideImage={sideImage3}
+        products={productList[0].touristRoutes}
+      />
+    </MainLayout>
   )
 }
