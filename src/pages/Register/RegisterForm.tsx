@@ -1,17 +1,33 @@
 import React from 'react'
 import { Button, Checkbox, Form, Input } from 'antd'
 import styles from './RegisterForm.module.scss'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
-const onFinish = (values: any) => {
-  console.log('Success:', values);
-};
+export const RegisterForm: React.FC = () => {
+  const navigate = useNavigate()
 
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
-};
+  const onFinish = async (values: any) => { // value為name裡的值
+    console.log('Success:', values)
+    try {
+      await axios.post("http://123.56.149.216:8080/auth/register", {
+        email: values.username,
+        password: values.password,
+        confirmPassword: values.confirm
+      })
+      navigate('/signin')
+    } catch (error) {
+      alert("註冊失敗！")
+    }
+  } 
+  
+  const onFinishFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo)
+  }
+  
 
-export const RegisterForm: React.FC = () => (
-  <Form
+  return (
+    <Form
     name="basic"
     labelCol={{ span: 8 }}
     wrapperCol={{ span: 16 }}
@@ -75,4 +91,5 @@ export const RegisterForm: React.FC = () => (
       </Button>
     </Form.Item>
   </Form>
-);
+  )
+}
