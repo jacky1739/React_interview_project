@@ -19,12 +19,11 @@ export const RegisterForm: React.FC = () => {
     } catch (error) {
       alert("註冊失敗！")
     }
-  } 
-  
+  }
+
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo)
   }
-  
 
   return (
     <Form
