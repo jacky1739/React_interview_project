@@ -10,6 +10,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { ProductDetailSlice } from './productDetail/slice'
 // import { productDetailSlice } from './recommendProducts/slice'
 import { productSearchSlice } from './productSearch/slice'
+import {userSlice } from './user/slice'
 
 // rootReducer命名為固定, 為combineReducers的集合體
 // combineReducers可以組合多個reducer
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   language: languageReducer,
   recommendProducts: recommendProductsReducer,
   productDetail: ProductDetailSlice.reducer,
-  productSearch: productSearchSlice.reducer
+  productSearch: productSearchSlice.reducer,
+  user: userSlice.reducer
 })
 
 // const store = createStore(rootReducer, applyMiddleware(thunk))
