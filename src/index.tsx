@@ -7,8 +7,10 @@ import 'antd/dist/reset.css'
 import './i18n/configs'
 
 import { Provider } from 'react-redux'
-import store from './redux/store'
+import rootStore from './redux/store'
 import axios from 'axios'
+// PersistGate為redux-perisit針對react開發的provider
+import { PersistGate } from 'redux-persist/integration/react'
 
 axios.defaults.headers['x-icode'] = 'ADF73A566FA6CC14'
 
@@ -17,8 +19,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
+    <Provider store={rootStore.store}>
+      <PersistGate persistor={rootStore.persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );
