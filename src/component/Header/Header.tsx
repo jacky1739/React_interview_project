@@ -97,7 +97,7 @@ export const Header: React.FC = () => {
             { jwt ? (
               <Button.Group className={styles["button-group"]}>
                 <p>{username}</p>
-                <Button>{t("header.shoppingCart")}</Button>
+                <Button onClick={() => navigate("/shoppingCart")}>{t("header.shoppingCart")}</Button>
                 <Button onClick={onLogout}>{t("header.signOut")}</Button>
               </Button.Group>
               ) : ( 
