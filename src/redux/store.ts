@@ -9,6 +9,8 @@ import {userSlice } from './user/slice'
 
 import { persistStore, persistReducer } from "redux-persist"
 import storage from 'redux-persist/lib/storage'
+import { ShoppingCartSlice } from './shoppingCart/slice'
+
 // redux-persist的設定
 const persistConfig = {
   key: 'root', // 持久化命名空間
@@ -23,7 +25,8 @@ const rootReducer = combineReducers({
   recommendProducts: recommendProductsReducer,
   productDetail: ProductDetailSlice.reducer,
   productSearch: productSearchSlice.reducer,
-  user: userSlice.reducer
+  user: userSlice.reducer,
+  shoppingCart: ShoppingCartSlice.reducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
