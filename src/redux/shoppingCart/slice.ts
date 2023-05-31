@@ -46,6 +46,23 @@ export const addShoppingCartItem = createAsyncThunk(
   }
 )
 
+export const checkout = createAsyncThunk(
+  "shoppingCart/checkout",
+  async (jwt: string, thunkAPI) => {
+    const { data } = await axios.post(
+      `http://123.56.149.216:8080/api/shoppingCart/checkout`,
+      null,
+      {
+        headers: {
+          Authorization: `bearer ${jwt}`
+        }
+      }
+    )
+    console.log(data.shoppingCartItems)
+    return data
+  }
+)
+
 export const clearShoppingCartItem = createAsyncThunk(
   "shoppingCart/clearShoppingCartItem",
   async (paramater: { jwt: string, itemIds: number[] }, thunkAPI) => {
@@ -84,7 +101,6 @@ export const ShoppingCartSlice = createSlice({
     [addShoppingCartItem.fulfilled.type]: (state, action) => {
       state.items = action.payload
       state.loading = false
-      console.log(state.items)
       state.error = null
     },
     [addShoppingCartItem.rejected.type]: (state, action: PayloadAction<string | null>) => {
@@ -103,6 +119,19 @@ export const ShoppingCartSlice = createSlice({
     [clearShoppingCartItem.rejected.type]: (state, action: PayloadAction<string | null>) => {
       state.loading = false
       state.error = action.payload
-    }
+    },
+    [checkout.pending.type]: (state) => {
+      // return { ...state, loading: true}
+      state.loading = true
+    },
+    [checkout.fulfilled.type]: (state, action) => {
+      state.loading = false
+      state.items = []
+      state.error = null
+    },
+    [checkout.rejected.type]: (state, action: PayloadAction<string | null>) => {
+      state.loading = false
+      state.error = action.payload
+    },
   }
 })
