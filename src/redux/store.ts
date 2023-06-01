@@ -6,10 +6,12 @@ import { ProductDetailSlice } from './productDetail/slice'
 // import { productDetailSlice } from './recommendProducts/slice'
 import { productSearchSlice } from './productSearch/slice'
 import {userSlice } from './user/slice'
+import { orderSlice } from './order/slice'
 
 import { persistStore, persistReducer } from "redux-persist"
 import storage from 'redux-persist/lib/storage'
 import { ShoppingCartSlice } from './shoppingCart/slice'
+
 
 // redux-persist的設定
 const persistConfig = {
@@ -26,7 +28,8 @@ const rootReducer = combineReducers({
   productDetail: ProductDetailSlice.reducer,
   productSearch: productSearchSlice.reducer,
   user: userSlice.reducer,
-  shoppingCart: ShoppingCartSlice.reducer
+  shoppingCart: ShoppingCartSlice.reducer,
+  order: orderSlice.reducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

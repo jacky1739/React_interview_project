@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import styles from './App.module.scss'
 import { HashRouter, Routes, Route } from 'react-router-dom'
-import { HomePage, SignInPage, RegisterPage, DetailPage, SearchPage, ShoppingCartPage } from './pages'
+import { HomePage, SignInPage, RegisterPage, DetailPage, SearchPage, ShoppingCartPage, PlaceOrderPage } from './pages'
 import { Navigate } from 'react-router-dom'
 import { useSelector, useAppDispatch } from './redux/hooks'
 import { getShoppingCart } from './redux/shoppingCart/slice'
 
+// 使用函數式元件的方式來創建Private路由
 const PrivateRoute = ({ children }: any) => {
   const jwt = useSelector((state) => state.user.token)
   return jwt ? children : <Navigate to="/signin" />
@@ -35,6 +36,13 @@ const App: React.FC = () => {
             element={
               <PrivateRoute>
                 <ShoppingCartPage />
+              </PrivateRoute>}
+          />
+          <Route 
+            path="/placeOrder"
+            element={
+              <PrivateRoute>
+                <PlaceOrderPage />
               </PrivateRoute>}
           />
           <Route path="*" element={<h1>你的頁面跑去火星了</h1>} />
