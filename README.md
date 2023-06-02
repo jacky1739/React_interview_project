@@ -12,8 +12,9 @@ Node.js 版本 v18.9.0
 
 ### 使用技術
 
-* Create React App ![](https://img.shields.io/badge/<React>-<v18.2>-<blue>)
-* Typescript (v4.9.5) ![](https://img.shields.io/badge/<Typescript>-<v4.9.2>-<blue>)
+* Create React App ![](https://img.shields.io/badge/React-v18.2-blue)
+* Typescript (v4.9.5) ![](https://img.shields.io/badge/Typescript-v4.9.2-blue>)
+* Ant Design ![](https://img.shields.io/badge/Ant Design-v5.4.4-blue>)
 * Axios
 * React-router-dom
 * React-redux
