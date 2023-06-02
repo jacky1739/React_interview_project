@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-https://img.shields.io/badge/<React>-<18.2>-<blue>
+https://img.shields.io/badge/<LABEL>-<MESSAGE>-<COLOR>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
