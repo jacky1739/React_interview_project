@@ -12,7 +12,7 @@ Node.js 版本 v18.9.0
 
 ### 使用技術
 
-* Create React App (React version v18.2) [![](https://img.shields.io/badge/<React>-<v18.2>-<blue>)]
+* Create React App (React version v18.2) ![](https://img.shields.io/badge/<React>-<v18.2>-<blue>)
 * Typescript (v4.9.5)
 * Axios
 * React-router-dom
