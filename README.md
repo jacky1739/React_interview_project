@@ -22,4 +22,3 @@ Node.js 版本 v18.9.0
 * Redux-thunk
 * Scss
 * Css in JS
-
