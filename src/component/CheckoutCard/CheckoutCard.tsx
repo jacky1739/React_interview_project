@@ -77,7 +77,7 @@ export const CheckOutCard: React.FC<PropsType> = ({ loading, order, onCheckout }
         <Meta
           title={
             <Title level={2}>
-              {order && order.state === "Completed" ? "支付成功" : "总计"}
+              {order && order.state === "Completed" ? "支付成功" : "總共"}
             </Title>
           }
           description={

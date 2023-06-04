@@ -42,12 +42,12 @@ export const ProductIntro: React.FC<PropsType> = (props) => {
   const tableDataSource: RowType[] = [
     {
         key: 0,
-        title: "路线名称",
+        title: "路線名稱",
         description: title,
     },
     {
         key: 1,
-        title: "价格",
+        title: "價格",
         description: (
           <div>
             ¥{" "}
@@ -59,7 +59,7 @@ export const ProductIntro: React.FC<PropsType> = (props) => {
     },
     {
       key: 2,
-      title: "限时抢购折扣",
+      title: "限時搶購折扣",
       description: discount ? (
         <>
           ¥ <Typography.Text delete>{price}</Typography.Text>{" "}
@@ -68,17 +68,17 @@ export const ProductIntro: React.FC<PropsType> = (props) => {
           </Typography.Text>
           </>
       ) : (
-          "暂无折扣"
+          "暫無折扣"
       ),
     },
     {
       key: 3,
-      title: "领取优惠",
-      description: coupons ? discount : "无优惠券可领",
+      title: "領取優惠",
+      description: coupons ? discount : "無優惠券可領",
     },
     {
       key: 4,
-      title: "线路评价",
+      title: "路線評價",
       description: (
         <div>
           <Rate allowHalf defaultValue={+rating} />
