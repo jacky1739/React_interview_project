@@ -31,7 +31,7 @@ const listData = (productList: Product[]) =>
     description: p.description,
     tags: (
       <>
-        {p.departureCity && <Tag color="#f50">{p.departureCity}出发</Tag>}
+        {p.departureCity && <Tag color="#f50">{p.departureCity}出發</Tag>}
         {p.travelDays && <Tag color="#108ee9">{p.travelDays} 天 </Tag>}
         {p.discountPresent && <Tag color="#87d068">超低折扣</Tag>}
         {p.tripType && <Tag color="#2db7f5">{p.tripType}</Tag>}
@@ -74,7 +74,7 @@ export const ProductList: React.FC<PropsType> = ({
       footer={
         paging && (
           <div>
-            搜索总路线: <Text strong>{paging.totalCount}</Text> 条
+            搜尋總路線: <Text strong>{paging.totalCount}</Text> 条
           </div>
         )
       }
