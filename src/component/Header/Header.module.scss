@@ -1,0 +1,68 @@
+@import "../../styles/index.scss";
+$height-base: 60px;
+$container: 88%;
+
+.app-header {
+  background-color: $white;
+  .container {
+    background-color: $gray-normal;
+    .top-header {
+      margin: 0 auto;
+      width: $container;
+      height: 40px;
+      padding-left: 4%;
+      padding-right: 4%;
+      display: flex;
+      line-height: 40px;
+      .button-group {
+        float: right;
+        margin-top: 5px;
+      }
+    }
+  }
+  .main-header {
+    width: $container;
+    background-color: $white;
+    height: $height-base;
+    line-height: $line-height-base;
+    margin-left: auto;
+    margin-right: auto;
+    .App-logo {
+      height: $height-base;
+      line-height: $line-height-base;
+      float: left;
+    }
+    .title {
+      line-height: 64px !important;
+      display: inline;
+      color: #03A9F4 !important;
+    }
+    .search-input {
+      width: 400px !important;
+      line-height: $line-height-base;
+      margin-top: 17px;
+      margin-left: 37px;
+    }
+  }
+  .main-menu {
+    padding-left: 6% !important;
+    padding-right: 6% !important;
+    background-color: $primary;
+    color: $gray-normal;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
