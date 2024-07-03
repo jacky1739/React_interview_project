@@ -15,12 +15,12 @@ interface OrderItem {
 
 const columns: ColumnsType<OrderItem> = [
   {
-    title: "产品",
+    title: "產品",
     dataIndex: "item",
     key: "item",
   },
   {
-    title: "价格",
+    title: "價格",
     dataIndex: "amount",
     key: "amount",
   },
